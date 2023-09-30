@@ -6,6 +6,8 @@ import {
   restoreDeletedContacts,
 } from './operations';
 
+import { logOut } from 'redux/auth/operations';
+
 // import { nanoid } from 'nanoid';
 
 // import initialContacts from '../components/contactsList.json';
@@ -76,6 +78,11 @@ export const contactsSlice = createSlice({
         handleRestoreDeletedContactsFulfilled
       )
       .addCase(restoreDeletedContacts.rejected, handleRejected),
+  [logOut.fulfilled](state) {
+    state.items = [];
+    state.error = null;
+    state.isLoading = false;
+  },
 });
 
 export const contactsReducer = contactsSlice.reducer;

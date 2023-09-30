@@ -1,10 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { deleteContact, restoreDeletedContacts } from 'redux/operations';
+import {
+  deleteContact,
+  restoreDeletedContacts,
+} from 'redux/contacts/operations';
 import {
   selectFilteredContacts,
   selectRestoredContacts,
-} from 'redux/selectors';
+} from 'redux/contacts/selectors';
 
 export const FormList = () => {
   const filteredContacts = useSelector(selectFilteredContacts);
