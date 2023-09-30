@@ -22,7 +22,7 @@ export const FormList = () => {
   };
 
   if (!Array.isArray(filteredContacts) || filteredContacts.length === 0) {
-    // console.log(filteredContacts);
+    console.log(filteredContacts);
     return null;
   }
   return (
