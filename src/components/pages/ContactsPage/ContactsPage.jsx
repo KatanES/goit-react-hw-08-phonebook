@@ -3,7 +3,6 @@ import { FormList } from '../../Phonebook/FormList';
 import { PhoneForm } from '../../Phonebook/PhoneForm';
 
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
@@ -18,9 +17,8 @@ export const ContactsPage = () => {
 
   return (
     <div>
-      <Helmet>
-        <title>PhoneBook</title>
-      </Helmet>
+      <title>PhoneBook</title>
+
       <PhoneForm />
       {isLoading && !error && <b>Request in progress...</b>}
       <ContactFilter />
