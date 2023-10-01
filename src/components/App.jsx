@@ -1,7 +1,7 @@
 import { Layout } from './Layout/Layout';
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './ResctrictedRoute';
 import { useAuth } from './hooks/useAuth';
@@ -23,8 +23,8 @@ export const App = () => {
     <b>Refreshing user...</b>
   ) : (
     <Routes>
-      <Route path="/" element={<Layout />} exact>
-        <Route index element={<HomePage />}></Route>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
         <Route
           path="/register"
           element={
@@ -47,15 +47,11 @@ export const App = () => {
           element={
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
-        >
-          Login
-        </Route>
-        {/* <PhoneForm />
-        {isLoading && !error && <b>Request in progress...</b>}
-        <ContactFilter />
-        <FormList /> */}
+        />
+        Login
       </Route>
-      <Route path="*" element={<div>404 Not Found</div>} />
+
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

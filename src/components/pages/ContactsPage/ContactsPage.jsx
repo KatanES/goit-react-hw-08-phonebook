@@ -3,10 +3,10 @@ import { FormList } from '../../Phonebook/FormList';
 import { PhoneForm } from '../../Phonebook/PhoneForm';
 
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
-import { Helmet } from 'react-helmet';
 
 export const ContactsPage = () => {
   const dispatch = useDispatch();
