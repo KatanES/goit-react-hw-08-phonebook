@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
 
-export const ContactsPage = () => {
+export default function ContactsPage() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -25,4 +25,4 @@ export const ContactsPage = () => {
       <FormList />
     </div>
   );
-};
+}
