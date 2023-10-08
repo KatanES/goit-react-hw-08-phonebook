@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-
+import { ContactBtn, ContactSpan, FilterContactsBtn } from './PhoneForm.styled';
 import {
   deleteContact,
   restoreDeletedContacts,
@@ -33,13 +33,15 @@ export const FormList = () => {
       <ul>
         {filteredContacts.map(({ name, number, id }) => (
           <li key={id}>
-            <span>{name}:</span>
-            <span>{number}</span>
-            <button onClick={() => onDeleteContact(id)}>Delete</button>
+            <ContactSpan>{name}:</ContactSpan>
+            <ContactSpan>{number}</ContactSpan>
+            <FilterContactsBtn onClick={() => onDeleteContact(id)}>
+              Delete
+            </FilterContactsBtn>
           </li>
         ))}
       </ul>
-      <button onClick={resetChanges}>Reset</button>
+      <ContactBtn onClick={resetChanges}>Reset</ContactBtn>
     </div>
   );
 };

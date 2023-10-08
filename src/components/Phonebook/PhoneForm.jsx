@@ -1,5 +1,12 @@
 import { Formik } from 'formik';
-import { StyledForm, StyledField, StyledError } from './PhoneForm.styled';
+import {
+  StyledForm,
+  StyledField,
+  StyledError,
+  ContactBtn,
+  ContactsContainer,
+  ContactsLbl,
+} from './PhoneForm.styled';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 
@@ -61,18 +68,21 @@ export const PhoneForm = () => {
       {({ handleSubmit }) => (
         <StyledForm onSubmit={handleSubmit}>
           <h2>PhoneBook</h2>
-          <label>
-            Name
-            <StyledField name="name" />
-            <StyledError name="name" component="div" />
-          </label>
-          <label>
-            Number
-            <StyledField name="number" />
-            <StyledError name="number" component="div" />
-          </label>
-
-          <button type="submit">Add contact</button>
+          <ContactsContainer>
+            <ContactsLbl>
+              Name
+              <StyledField name="name" />
+              <StyledError name="name" component="div" />
+            </ContactsLbl>
+            <ContactsLbl>
+              Number
+              <StyledField name="number" />
+              <StyledError name="number" component="div" />
+            </ContactsLbl>
+          </ContactsContainer>
+          <div>
+            <ContactBtn type="submit">Add contact</ContactBtn>
+          </div>
         </StyledForm>
       )}
     </Formik>
